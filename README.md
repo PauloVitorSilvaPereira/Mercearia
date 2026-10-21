@@ -1,7 +1,7 @@
 # Mercearia
 
 
-![Badge Status](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+![Badge Status](https://img.shields.io/badge/Status-Conclu%C3%ADdo-blue)
 
 
 # 💻: Tecnologias
@@ -20,7 +20,7 @@
 # 🎯: Objetivo
 
 
-O objetivo desse software é faciliar e organizar as ações cotidianas de uma mercearia
+O projeto Mercearia é um sistema voltado para a organização e gerenciamento de atividades do cotidiano de uma mercearia. Ele busca facilitar a organização de funcionários, vendas, produtos e cargos, gerando uma melhor administração do negócio.
 
 
 # 🔨: Funcionalidades do projeto
