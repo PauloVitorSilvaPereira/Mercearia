@@ -5,20 +5,13 @@
 package Telas;
 
 import javax.swing.JOptionPane;
+import pi.etapa1.models.Sessao;
 
-/**
- *
- * @author pvito
- */
 public class Menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Menu
-     */
     public Menu() {
         initComponents();
     }
-    Entrar entrar = new Entrar();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,83 +104,76 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-        // TODO add your handling code here:
-        if(entrar.cargoGlobal.equals("Caixa") || entrar.cargoGlobal.equals("Gerente") || entrar.cargoGlobal.equals("Entregador")){
-            this.dispose();
-            Caixa caixa = new Caixa();
-            caixa.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Você não tem permissão para isso, fale com o gerente.");
-        }
+        if ("Caixa".equals(Sessao.cargo)
+        || "Gerente".equals(Sessao.cargo)
+        || "Entregador".equals(Sessao.cargo)) {
+
+    this.dispose();
+
+    Caixa caixa = new Caixa();
+    caixa.setVisible(true);
+
+} else {
+    JOptionPane.showMessageDialog(
+        null,
+        "Você não tem permissão para isso, fale com o gerente."
+    );
+}
     }//GEN-LAST:event_btnVendasActionPerformed
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
-        // TODO add your handling code here:
-        if(entrar.cargoGlobal.equals("Estoquista") || entrar.cargoGlobal.equals("Gerente")){
-            this.dispose();
-            ProdutosView produtos = new ProdutosView();
-            produtos.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Você não tem permissão para isso, fale com o gerente.");
-        }
+        if ("Estoquista".equals(Sessao.cargo)
+        || "Gerente".equals(Sessao.cargo)) {
+
+    this.dispose();
+
+    ProdutosView produtos = new ProdutosView();
+    produtos.setVisible(true);
+
+} else {
+    JOptionPane.showMessageDialog(
+        null,
+        "Você não tem permissão para isso, fale com o gerente."
+    );
+}
     }//GEN-LAST:event_btnProdutosActionPerformed
 
     private void btnFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncionariosActionPerformed
-        // TODO add your handling code here:
-        if(entrar.cargoGlobal.equals("Gerente")){
-            this.dispose();
+        if ("Gerente".equals(Sessao.cargo)) {
+
             FuncionariosView funcionarios = new FuncionariosView();
             funcionarios.setVisible(true);
+            this.dispose();
+
         } else {
-            JOptionPane.showMessageDialog(null, "Você não tem permissão para isso, fale com o gerente.");
+
+            JOptionPane.showMessageDialog(
+                this,
+                "Você não tem permissão para isso, fale com o gerente."
+            );
         }
     }//GEN-LAST:event_btnFuncionariosActionPerformed
 
     private void btnCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargosActionPerformed
-        // TODO add your handling code here:
-        if(entrar.cargoGlobal.equals("Gerente")){
-            this.dispose();
+        if ("Gerente".equals(Sessao.cargo)) {
+
             CargosView cargos = new CargosView();
             cargos.setVisible(true);
+            this.dispose();
+
         } else {
-            JOptionPane.showMessageDialog(null, "Você não tem permissão para isso, fale com o gerente.");
-        } 
+
+            JOptionPane.showMessageDialog(
+                this,
+                "Você não tem permissão para isso, fale com o gerente."
+            );
+        }
     }//GEN-LAST:event_btnCargosActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCargos;

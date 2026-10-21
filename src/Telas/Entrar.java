@@ -6,6 +6,7 @@ package Telas;
 
 import DAO.LoginDAO;
 import javax.swing.JOptionPane;
+import pi.etapa1.models.Sessao;
 
 /**
  *
@@ -40,7 +41,7 @@ public class Entrar extends javax.swing.JFrame {
 
         jTextField1.setText("jTextField1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("Entrar");
@@ -126,27 +127,34 @@ public class Entrar extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLoginActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
-        LoginDAO dao = new LoginDAO();
-        
+    LoginDAO dao = new LoginDAO();
 
-        String login = txtLogin.getText();
-        String senha = txtSenha.getText();
+    String login = txtLogin.getText();
+    String senha = txtSenha.getText();
 
-        if (dao.autenticarFuncionario(login, senha)) {
-            this.dispose();
-            Menu menu = new Menu();
-            menu.setVisible(true);
-            
-            JOptionPane.showMessageDialog(null, "Login realizado com suceso!");
-        } else {
-            JOptionPane.showMessageDialog(null, "Senha ou email incorreto.");
-        }
-        
-        int idDoUsuario = dao.idUsuario(login);
-        int idDoCargo = dao.idCargo(idDoUsuario);
-        String cargo = dao.cargoDoFuncionario(idDoCargo);
-        cargoGlobal = cargo;
+    if (dao.autenticarFuncionario(login, senha)) {
+
+        Sessao.idUsuario = dao.idUsuario(login);
+        Sessao.idCargo = dao.idCargo(Sessao.idUsuario);
+        Sessao.cargo = dao.cargoDoFuncionario(Sessao.idCargo);
+
+        this.dispose();
+
+        Menu menu = new Menu();
+        menu.setVisible(true);
+
+        JOptionPane.showMessageDialog(
+            null,
+            "Login realizado com sucesso!"
+        );
+
+    } else {
+
+        JOptionPane.showMessageDialog(
+            null,
+            "Senha ou email incorreto."
+        );
+    }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**

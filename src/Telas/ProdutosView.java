@@ -48,7 +48,6 @@ public class ProdutosView extends javax.swing.JFrame {
         txtValor = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Mercearia");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
